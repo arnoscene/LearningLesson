@@ -145,7 +145,7 @@ class App{
                 	spotlight.position.set( 0, 0, 0 );
                 	spotlight.target.position.set( 0, 0, -1 );
 
-                	self.spotlight.position.add(spotlight.target);
+                	self.spotlight.add(spotlight.target);
                 	self.spotlight.add( spotlight );
 
                 	controller.add(self.spotlight);
