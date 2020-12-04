@@ -140,17 +140,16 @@ class App{
                 	flashLight.scale.set(scale,scale,scale);
                 	controller.add( flashLight );
                 	self.spotlight = new THREE.Group();
-
                 	const spotlight = new THREE.SpotLight(0xFFFFFF,2,12,Math.PI/15,0.3);
-                	spotlight.position.set( 0, 0, 0 );
-                	spotlight.target.position.set( 0, 0, -1 );
-
-                	self.spotlight.add(spotlight.target);
-                	self.spotlight.add( spotlight );
-
-                	controller.add(self.spotlight);
-                	self.spotlight.visible = false;
-
+                	
+                	spotlight.position.set(0,0,0);
+                        spotlight.target.position.set(0,0,-1);
+                        self.spotlight.add( spotlight.target );
+                        self.spotlight.add( spotlight );
+                        self.spotlight.add( cone );
+                        
+                        controller.add(self.spotlight);
+                        self.spotlight.visible = false;
                 }),
                     null,
                     (error) => {
