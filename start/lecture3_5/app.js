@@ -141,7 +141,12 @@ class App{
                 	controller.add( flashLight );
                 	self.spotlight = new THREE.Group();
                 	const spotlight = new THREE.SpotLight(0xFFFFFF,2,12,Math.PI/15,0.3);
-                	
+                	 geometry = new THREE.CylinderBufferGeometry(0.03, 1, 5, 32, 5, true);
+                        geometry.rotateX( Math.PI/2 );
+                        material = new SpotLightVolumetricMaterial();
+                        const cone = new THREE.Mesh( geometry, material );
+                        cone.translateZ( -2.6 );
+
                 	spotlight.position.set(0,0,0);
                         spotlight.target.position.set(0,0,-1);
                         self.spotlight.add( spotlight.target );
