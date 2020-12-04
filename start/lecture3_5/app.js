@@ -133,8 +133,12 @@ class App{
             
             case 'tracked-pointer':
                 //Enter code here
-                
-                    
+                loader = new GLTFLoader().setPath("../../assets/");
+                loader.load("flash-light.glb",(gltf) => {
+                	const flashLight = gltf.scene.children[2];
+                	const scale = 0.6;
+                	flashLight.scale.set(scale,scale,scale);
+                	controller.add( flashLight );
                 }),
                     null,
                     (error) => {
